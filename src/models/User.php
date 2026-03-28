@@ -14,7 +14,7 @@
  * 
  * @return array Liste des utilisateurs
  */
-function getAllUsers()
+function getAllUsers(): array
 {
     $db = getDbConnection();
 
@@ -32,7 +32,7 @@ function getAllUsers()
  * @param int $id ID de l'utilisateur
  * @return array|null Utilisateur ou null
  */
-function getUserById(int $id)
+function getUserById(int $id): ?array
 {
     $db = getDbConnection();
 
@@ -50,7 +50,7 @@ function getUserById(int $id)
  * @param string $email Email de l'utilisateur
  * @return array|null Utilisateur ou null
  */
-function getUserByEmail(string $email)
+function getUserByEmail(string $email): ?array
 {
     $db = getDbConnection();
 
@@ -68,7 +68,7 @@ function getUserByEmail(string $email)
  * @param array $data Données de l'utilisateur
  * @return int|false ID de l'utilisateur créé ou false
  */
-function createUser(array $data)
+function createUser(array $data): int|bool
 {
     $db = getDbConnection();
 
@@ -94,7 +94,7 @@ function createUser(array $data)
  * @param array $data Nouvelles données
  * @return bool Succès de l'opération
  */
-function updateUser(int $id, array $data)
+function updateUser(int $id, array $data): bool
 {
     $db = getDbConnection();
 
@@ -116,7 +116,7 @@ function updateUser(int $id, array $data)
  * @param int $id ID de l'utilisateur
  * @return bool Succès de l'opération
  */
-function deleteUser($id)
+function deleteUser($id): bool
 {
     $db = getDbConnection();
 
@@ -135,7 +135,7 @@ function deleteUser($id)
  * @param int|null $excludeId ID à exclure (pour les mises à jour)
  * @return bool
  */
-function emailExists(string $email, ?int $excludeId = null)
+function emailExists(string $email, ?int $excludeId = null): bool
 {
     $db = getDbConnection();
 
@@ -159,7 +159,7 @@ function emailExists(string $email, ?int $excludeId = null)
  * @param string $password Mot de passe
  * @return array|false Utilisateur si authentifié, false sinon
  */
-function authenticateUser(string $email, string $password)
+function authenticateUser(string $email, string $password): array|bool
 {
     $user = getUserByEmail($email);
 
@@ -182,7 +182,7 @@ function authenticateUser(string $email, string $password)
  * 
  * @return int Nombre d'utilisateurs
  */
-function countUsers()
+function countUsers(): int
 {
     $db = getDbConnection();
     $count = dbCount($db, 'users');
@@ -198,7 +198,7 @@ function countUsers()
  * @param int $perPage Nombre par page
  * @return array Utilisateurs
  */
-function getUsersPaginated(int $page = 1, int $perPage = 10)
+function getUsersPaginated(int $page = 1, int $perPage = 10): array
 {
     $db = getDbConnection();
 
@@ -221,7 +221,7 @@ function getUsersPaginated(int $page = 1, int $perPage = 10)
  * @param string $search Terme de recherche
  * @return array Utilisateurs trouvés
  */
-function searchUsers(string $search)
+function searchUsers(string $search): array
 {
     $db = getDbConnection();
 
@@ -245,7 +245,7 @@ function searchUsers(string $search)
  * @param string $newPassword Nouveau mot de passe
  * @return bool Succès de l'opération
  */
-function changeUserPassword(int $userId, string $newPassword)
+function changeUserPassword(int $userId, string $newPassword): bool
 {
     $db = getDbConnection();
 
