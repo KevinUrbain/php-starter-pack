@@ -1,0 +1,46 @@
+# =====================================================
+# FICHIER .gitignore
+# =====================================================
+
+# Logs
+logs/*.log
+*.log
+
+# Configuration locale (ne pas versionner les credentials)
+config/local.php
+.env
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Dépendances (si vous utilisez Composer)
+vendor/
+composer.lock
+
+# Uploads utilisateurs
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Cache
+cache/*
+!cache/.gitkeep
+tmp/*
+!tmp/.gitkeep
+
+# Fichiers de sauvegarde
+*.bak
+*.swp
+*.swo
+*~
+
+# Node modules (si vous utilisez npm)
+node_modules/
+package-lock.json
