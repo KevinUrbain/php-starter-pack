@@ -2,7 +2,7 @@
 
 <div class="container">
     <h1><?= escape($title) ?></h1>
-    
+
     <div class="content-block">
         <h2>Qu'est-ce que <?= APP_NAME ?> ?</h2>
         <p>
@@ -11,7 +11,7 @@
             et des bonnes pratiques professionnelles.
         </p>
     </div>
-    
+
     <div class="content-block">
         <h2>Pourquoi utiliser ce starter pack ?</h2>
         <ul>
@@ -23,17 +23,18 @@
             <li><strong>Helpers utiles</strong> : Fonctions réutilisables pour gagner du temps</li>
         </ul>
     </div>
-    
+
     <div class="content-block">
         <h2>Technologies utilisées</h2>
         <ul>
             <li>PHP 7.4+ (procédural)</li>
-            <li>MySQLi pour la base de données</li>
+            <li>MySQL pour la base de données</li>
+            <li>Requêtes préparées (PDO)</li>
             <li>Apache avec mod_rewrite</li>
             <li>HTML5, CSS3, JavaScript</li>
         </ul>
     </div>
-    
+
     <div class="content-block">
         <h2>Structure du projet</h2>
         <pre><code>php-starter-pack/

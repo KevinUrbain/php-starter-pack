@@ -5,7 +5,7 @@
         <h1><?= escape($title) ?> sur <?= APP_NAME ?> 🚀</h1>
         <p class="subtitle"><?= escape($message) ?></p>
     </div>
-    
+
     <div class="features">
         <h2>Fonctionnalités</h2>
         <div class="features-grid">
@@ -17,7 +17,7 @@
             <?php endforeach; ?>
         </div>
     </div>
-    
+
     <div class="getting-started">
         <h2>Démarrage rapide</h2>
         <div class="code-block">
@@ -43,7 +43,7 @@ function show($id) {
     view('blog/show', $data);
 }</code></pre>
         </div>
-        
+
         <div class="code-block">
             <h3>2. Créer la vue correspondante</h3>
             <pre><code>&lt;!-- src/views/blog/index.php --&gt;
@@ -57,14 +57,14 @@ function show($id) {
 
 &lt;?php partial('footer'); ?&gt;</code></pre>
         </div>
-        
+
         <div class="code-block">
             <h3>3. Accéder via URL propre</h3>
             <pre><code>http://localhost/php-starter-pack/public/blog
 http://localhost/php-starter-pack/public/blog/show/123</code></pre>
         </div>
     </div>
-    
+
     <div class="cta">
         <h2>Prêt à coder ?</h2>
         <p>Consultez la documentation complète dans le fichier README.md</p>
