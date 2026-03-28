@@ -680,8 +680,7 @@ function index() {
 
 Pour toute question ou problème :
 
-- Email : contact@monsite.com
-- Issues : https://github.com/votre-repo/issues
+- Email : kevin.urbain.pro@gmail.com
 
 ---
 
@@ -707,4 +706,5 @@ MIT License - Libre d'utilisation
 ---
 
 **Bon développement ! 🎉**
+
 # php-starter-pack
