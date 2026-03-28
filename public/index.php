@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * =====================================================
  * FRONT CONTROLLER
@@ -30,10 +31,11 @@ startSession();
 /**
  * Gestionnaire d'erreurs personnalisé
  */
-function customErrorHandler($errno, $errstr, $errfile, $errline) {
+function customErrorHandler($errno, $errstr, $errfile, $errline)
+{
     $message = "Erreur [$errno] : $errstr dans $errfile à la ligne $errline";
     logMessage($message, 'error');
-    
+
     if (ENVIRONMENT === 'development') {
         echo "<div style='background:#f8d7da;color:#721c24;padding:15px;margin:10px;border:1px solid #f5c6cb;border-radius:5px;'>";
         echo "<strong>Erreur PHP :</strong> $errstr<br>";
@@ -41,7 +43,7 @@ function customErrorHandler($errno, $errstr, $errfile, $errline) {
         echo "<strong>Ligne :</strong> $errline";
         echo "</div>";
     }
-    
+
     // Ne pas exécuter le gestionnaire d'erreurs interne de PHP
     return true;
 }
@@ -54,11 +56,12 @@ set_error_handler('customErrorHandler');
 /**
  * Gestionnaire d'exceptions personnalisé
  */
-function customExceptionHandler($exception) {
-    $message = "Exception : " . $exception->getMessage() . " dans " . 
-               $exception->getFile() . " à la ligne " . $exception->getLine();
+function customExceptionHandler($exception)
+{
+    $message = "Exception : " . $exception->getMessage() . " dans " .
+        $exception->getFile() . " à la ligne " . $exception->getLine();
     logMessage($message, 'error');
-    
+
     if (ENVIRONMENT === 'development') {
         echo "<div style='background:#f8d7da;color:#721c24;padding:15px;margin:10px;border:1px solid #f5c6cb;border-radius:5px;'>";
         echo "<strong>Exception :</strong> " . $exception->getMessage() . "<br>";

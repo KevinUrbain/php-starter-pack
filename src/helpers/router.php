@@ -1,3 +1,4 @@
+$
 <?php
 /**
  * =====================================================
@@ -19,7 +20,7 @@
 function parseUrl()
 {
     // Récupérer l'URL depuis le paramètre GET 'url'
-    $url = isset($_GET['url']) ? $_GET['url'] : '';
+    $url = $_GET['url'] ?? '';
 
     // Nettoyer l'URL
     $url = trim($url, '/');
@@ -85,7 +86,7 @@ function loadController($controller)
  * @param string $action Nom de l'action
  * @return bool
  */
-function actionExists($action)
+function actionExists(string $action)
 {
     return function_exists($action);
 }
@@ -97,7 +98,7 @@ function actionExists($action)
  * @param array $params Paramètres à passer
  * @return void
  */
-function executeAction($action, $params = [])
+function executeAction(string $action, array $params = [])
 {
     if (function_exists($action)) {
         // Appeler la fonction avec les paramètres
@@ -152,7 +153,7 @@ function handle404()
  * @param array $params Paramètres supplémentaires
  * @return string URL complète
  */
-function url($controller = '', $action = '', $params = [])
+function url(string $controller = '', string $action = '', array $params = [])
 {
     $url = BASE_URL;
 
@@ -181,7 +182,7 @@ function url($controller = '', $action = '', $params = [])
  * @param array $params Paramètres supplémentaires
  * @return void
  */
-function redirect($controller = '', $action = '', $params = [])
+function redirect(string $controller = '', string $action = '', array $params = [])
 {
     $url = url($controller, $action, $params);
     header("Location: $url");
@@ -194,7 +195,7 @@ function redirect($controller = '', $action = '', $params = [])
  * @param string $method Méthode attendue (GET, POST, PUT, DELETE)
  * @return bool
  */
-function isMethod($method)
+function isMethod(string $method)
 {
     return $_SERVER['REQUEST_METHOD'] === strtoupper($method);
 }
@@ -258,7 +259,7 @@ $customRoutes = [];
  * @param string $controller Contrôleur cible
  * @param string $action Action cible
  */
-function addRoute($pattern, $controller, $action)
+function addRoute(string $pattern, string $controller, string $action)
 {
     global $customRoutes;
     $customRoutes[$pattern] = [
@@ -273,7 +274,7 @@ function addRoute($pattern, $controller, $action)
  * @param string $url URL à matcher
  * @return array|null Route trouvée ou null
  */
-function matchCustomRoute($url)
+function matchCustomRoute(string $url)
 {
     global $customRoutes;
 
